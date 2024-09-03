@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasserie La Sonchoise</title>
+    <link href="dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-sovietBeige text-sovietBlack relative">
+
+    <!-- Navbar -->
+    <div class="sticky top-0 z-50">
+        <header class="bg-sovietRed text-sovietYellow p-4 shadow-lg texture-overlay">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-5xl font-extrabold font-title uppercase">La Sonchoise</h1>
+                <nav>
+                    <ul class="flex space-x-8 text-lg font-bold">
+                        <li><a href="#" class="hover:text-sovietGray font-subtitle text-xl">Accueil</a></li>
+                        <li><a href="#about" class="hover:text-sovietGray font-subtitle text-xl">À Propos</a></li>
+                        <li><a href="#beers" class="hover:text-sovietGray font-subtitle text-xl">Nos Bières</a></li>
+                        <li><a href="#contact" class="hover:text-sovietGray font-subtitle text-xl">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative text-sovietBeige py-32 text-center shadow-inner texture-overlay bg-rays bg-center bg-cover bg-fixed">
+        <div class="container mx-auto">
+            <h2 class="text-7xl font-extrabold tracking-wider uppercase text-shadow-black font-title relative z-40">Révolutionnez Votre Goût</h2>
+            <p class="mt-4 text-3xl font-medium text-shadow-black font-subtitle">Découvrez La Sonchoise, la bière qui mène la révolution du goût !</p>
+            <a href="#beers" class="mt-8 inline-block bg-sovietRed text-sovietBeige py-4 px-8 rounded-full text-2xl font-paragraph shadow-lg transform hover:scale-110 transition-transform duration-200">Nos Bières</a>
+        </div>
+        <img class="h-96 absolute bottom-0 right-0" src="src/textures/handfull.webp" alt="">
+    </section>
+
+    <!-- À Propos -->
+    <section id="about" class="py-20 bg-sovietBeige texture-overlay ">
+        <div class="container mx-auto max-w-3xl pl-24">
+            <h2 class="text-5xl font-extrabold text-sovietRed uppercase font-title">À Propos de Nous</h2>
+            <p class="mt-6 text-xl text-sovietBlack leading-relaxed font-subtitle">
+                Nous sommes trois amis, unis par une passion indéfectible pour l'art du brassage. Depuis des années, nous explorons, nous testons, nous perfectionnons. Chaque brassin est une expérience, chaque recette est une conquête. Seules les bières qui atteignent l'excellence sont dignes d'être refaites et partagées. Malgré nos moyens modestes d'amateurs, nous visons toujours l'excellence. Pour nous, la qualité n'est pas une option, c'est une obligation. Chaque goutte de La Sonchoise est le fruit de notre engagement total.
+            </p>
+        </div>
+        <img class="h-[33rem] absolute bottom-0 left-0" src="src/textures/sonchoise.webp" alt="">
+    </section>
+
+    <!-- Nos Bières -->
+    <section id="beers" class="bg-sovietGray text-sovietYellow py-20 texture-overlay">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl font-extrabold uppercase">Nos Bières</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+                <!-- Example Beer -->
+                <div class="bg-sovietRed text-sovietYellow p-8 rounded-lg shadow-lg">
+                    <h3 class="text-3xl font-bold">La Sonchoise</h3>
+                    <p class="mt-4">
+                        Une bière blonde au caractère affirmé, avec une amertume parfaitement équilibrée et une fin de bouche mémorable.
+                    </p>
+                </div>
+                <!-- Add more beers as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-sovietRed text-sovietYellow py-20 texture-overlay">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl font-extrabold uppercase">Contactez-Nous</h2>
+            <p class="mt-4">Des questions ? Une commande spéciale ? Nous sommes là pour vous répondre.</p>
+            <form class="mt-8 max-w-md mx-auto">
+                <input type="text" placeholder="Nom" class="w-full bg-sovietBeige text-sovietBlack p-4 rounded mt-4">
+                <input type="email" placeholder="Email" class="w-full bg-sovietBeige text-sovietBlack p-4 rounded mt-4">
+                <textarea placeholder="Message" class="w-full bg-sovietBeige text-sovietBlack p-4 rounded mt-4"></textarea>
+                <button type="submit" class="bg-sovietYellow text-sovietRed py-4 px-8 rounded-full mt-6 font-bold shadow-lg hover:bg-sovietBeige hover:text-sovietRed transition-colors duration-200">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sovietBlack text-sovietYellow py-6 text-center texture-overlay">
+        <p>&copy; 2024 La Sonchoise - Tous droits réservés. | Propulsé par la passion du brassage.</p>
+    </footer>
+
+</body>
+</html>

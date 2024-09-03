@@ -1,0 +1,27 @@
+@import url(https://fonts.bunny.net/css?family=anton:400|archivo-black:400|bebas-neue:400|oswald:200,300,400,500,600,700|russo-one:400|staatliches:400);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .texture-overlay {
+    position: relative;
+  }
+
+  .texture-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/textures/paper_1.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    /* opacity: 0.8; */
+    pointer-events: none;
+    z-index: 1;
+  }
+}
