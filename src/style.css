@@ -1,8 +1,16 @@
-@import url(https://fonts.bunny.net/css?family=anton:400|archivo-black:400|bebas-neue:400|oswald:200,300,400,500,600,700|russo-one:400|staatliches:400);
-
+@import url(https://fonts.bunny.net/css?family=anton:400|archivo-black:400|bebas-neue:400|bungee:400|bungee-shade:400|oswald:200,300,400,500,600,700|russo-one:400|staatliches:400);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'eurcntrc';
+  src: url('/src/fonts/eurcntrc.ttf') format('truetype');
+}
+
+strong a {
+  @apply underline after:content-['↗'] hover:text-sovietRed;
+}
 
 @layer utilities {
   .texture-overlay {
@@ -24,4 +32,108 @@
     pointer-events: none;
     z-index: 1;
   }
+  .poster {
+    /* width: 300px; */
+    /* padding: 7%; */
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    filter: saturate(100%) contrast(85%);
+  }
+  .poster img {
+    width: 100%;
+    display: block;
+    z-index: 1;
+  }
+  .poster:before,
+  .poster:after {
+    content: '';
+    width: 100%;
+    left: 0;
+    position: absolute;
+  }
+  .poster:before {
+    height: 4%;
+    bottom: -4%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        177deg,
+        rgba(0, 0, 0, 0.22) 10%,
+        transparent 50%
+      ),
+      linear-gradient(-177deg, rgba(0, 0, 0, 0.22) 10%, transparent 50%);
+    background-size: 49% 100%;
+    background-position: 2% 0, 98% 0;
+  }
+  .poster:after {
+    height: 100%;
+    top: 0;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1) 0.5%,
+        rgba(0, 0, 0, 0.15) 1.2%,
+        transparent 1.2%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1) 0.5%,
+        rgba(0, 0, 0, 0.15) 1.2%,
+        transparent 1.2%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1) 0.5%,
+        rgba(0, 0, 0, 0.15) 1.2%,
+        transparent 1.2%
+      ),
+      linear-gradient(265deg, rgba(0, 0, 0, 0.2), transparent 10%),
+      linear-gradient(5deg, rgba(0, 0, 0, 0.2), transparent 15%),
+      linear-gradient(-5deg, rgba(0, 0, 0, 0.1), transparent 10%),
+      linear-gradient(5deg, rgba(0, 0, 0, 0.1), transparent 10%),
+      linear-gradient(-265deg, rgba(0, 0, 0, 0.2), transparent 10%),
+      linear-gradient(-5deg, rgba(0, 0, 0, 0.2), transparent 15%),
+      linear-gradient(266deg, rgba(0, 0, 0, 0.2), transparent 10%);
+    background-size: 50% 100%, 100% 33.3333%, 100% 33.3333%, 50% 33.3333%,
+      50% 33.3333%, 50% 33.3333%, 50% 33.3333%, 50% 33.3333%, 50% 33.3333%,
+      50% 33.3333%;
+    background-position: right top, left center, left bottom, left top, left top,
+      right top, left center, right center, right center, left bottom;
+  }
+  
+  .scotch-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f4e5c3; /* Couleur beige semblable au scotch */
+    color: #333; /* Couleur du texte */
+    border: none;
+    border-radius: 5px; /* Légère courbure des coins */
+    position: relative;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile pour effet relief */
+    transform: rotate(-3deg); /* Légère inclinaison pour un effet naturel */
+    opacity: 0.9; /* Légère transparence pour simuler le plastique du scotch */
+    cursor: pointer;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  }
+  
+  .scotch-button:hover {
+    opacity: 1;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au survol */
+  }
+  
+  .scotch-button::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 1px dashed #333; /* Simule des bordures déchirées */
+    opacity: 0.5; /* Légère transparence pour l'effet de déchirure */
+  }
+  
 }

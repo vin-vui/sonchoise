@@ -15,12 +15,17 @@ module.exports = {
         sovietGray: '#333333',
       },
       fontFamily: {
-        propaganda: ['Archivo Black', 'sans-serif'],
-        propaganda_2: ['Anton', 'sans-serif'],
-        propaganda_3: ['Staatliches', 'display'],
-        title: ['Russo One', 'sans-serif'], 
-        subtitle: ['Oswald', 'sans-serif'],
-        paragraph: ['Bebas Neue', 'display'],
+        special: ['eurcntrc', 'display'],
+        title: ['Bungee', 'display'],
+        paragraph: ['Oswald', 'sans-serif'],
+
+        // bungee_shade: ['Bungee Shade', 'display'],
+        // propaganda: ['Archivo Black', 'sans-serif'],
+        // propaganda_2: ['Anton', 'sans-serif'],
+        // propaganda_3: ['Staatliches', 'display'],
+        // title: ['Russo One', 'sans-serif'], 
+        // paragraph: ['Bebas Neue', 'display'],
+        // kremlin: ['kremlin', 'display'],
       },
       keyframes: {
         pulsate: {
