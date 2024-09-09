@@ -1,47 +1,77 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brasserie La Sonchoise</title>
     <link href="dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="src/script.js" type="module" defer></script>
 </head>
-<body class="bg-sovietBeige text-sovietBlack relative">
+<body class="bg-sovietBeige text-sovietBlack">
 
     <!-- Navbar -->
-    <div class="sticky top-0 z-50">
+    <div class="fixed inset-x-0 top-0 z-50">
         <header class="bg-sovietRed text-sovietYellow p-4 shadow-lg texture-overlay">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-5xl font-extrabold font-special uppercase">La Sonchoise</h1>
-                <nav>
+                <h1 class="lg:text-5xl text-3xl font-extrabold font-special uppercase"><a href="#home">La Sonchoise</a></h1>
+    
+                <!-- Menu burger pour mobile -->
+                <div class="lg:hidden">
+                    <button id="burger-menu" class="focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <!-- Navigation pour desktop (cachée en mobile) -->
+                <nav class="hidden lg:block">
                     <ul class="flex space-x-8 text-lg font-bold">
-                        <li><a href="#" class="hover:text-sovietGray font-paragraph text-xl">Accueil</a></li>
+                        <li><a href="#home" class="hover:text-sovietGray font-paragraph text-xl">Accueil</a></li>
                         <li><a href="#about" class="hover:text-sovietGray font-paragraph text-xl">À Propos</a></li>
                         <li><a href="#beers" class="hover:text-sovietGray font-paragraph text-xl">Nos Bières</a></li>
                         <li><a href="#contact" class="hover:text-sovietGray font-paragraph text-xl">Contact</a></li>
                     </ul>
                 </nav>
             </div>
+    
+            <!-- Menu mobile avec animation -->
+            <nav id="mobile-menu" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out lg:hidden">
+                <ul class="flex flex-col space-y-2 text-lg font-bold mt-4">
+                    <li><a href="#home" class="hover:text-sovietGray font-paragraph text-xl flex py-2">Accueil</a></li>
+                    <li><a href="#about" class="hover:text-sovietGray font-paragraph text-xl flex py-2">À Propos</a></li>
+                    <li><a href="#beers" class="hover:text-sovietGray font-paragraph text-xl flex py-2">Nos Bières</a></li>
+                    <li><a href="#contact" class="hover:text-sovietGray font-paragraph text-xl flex py-2">Contact</a></li>
+                </ul>
+            </nav>
         </header>
     </div>
-
+    
     <!-- Hero Section -->
-    <section class="relative text-sovietBeige py-64 text-center shadow-inner texture-overlay bg-rays bg-center bg-cover bg-fixed">
-        <div class="container mx-auto relative z-40">
-            <h2 class="text-7xl font-extrabold tracking-wider uppercase text-shadow-black font-special select-none">Révolutionnez Votre Goût</h2>
-            <p class="mt-4 text-3xl font-medium text-shadow-black font-title select-none">Découvrez La Sonchoise, la bière qui mène la révolution du goût !</p>
-            <a href="#beers" class="mt-8 inline-block bg-sovietRed text-sovietBeige py-4 px-8 rounded-full text-2xl font-paragraph shadow-lg transform hover:scale-110 transition-transform duration-200">Nos Bières</a>
+    <section id="home" class="text-sovietBeige min-h-screen lg:py-64 py-44 text-center shadow-inner texture-overlay bg-rays bg-center bg-cover bg-fixed">
+        <div class="container mx-auto relative z-40 h-full">
+            <h2 class="opacity-0 lg:text-7xl sm:text-5xl text-4xl font-extrabold tracking-wider uppercase text-shadow-black font-special select-none fade-in-up">
+                Révolutionnez Votre Goût
+            </h2>
+            <p class="opacity-0 mt-4 lg:text-3xl sm:text-xl text-lg font-medium text-shadow-black font-title select-none fade-in-up-delayed">
+                Découvrez la bière qui mène la révolution du goût !
+            </p>
+            <a href="#contact" class="opacity-0 mt-16 relative mx-16 lg:mx-auto max-w-md paper pink flex texture-overlay justify-center items-center py-4 -rotate-2 hover:sepia transition-all duration-200 fade-in-up-more-delayed">
+                <div class="tape-section"></div>
+                <p class="font-paragraph text-2xl text-white">Rejoignez la Révolution</p>
+            </a>
         </div>
-        <img class="h-[33rem] absolute bottom-0 right-0" src="src/textures/handfull.webp" alt="">
+        <img class="lg:h-[33rem] h-96 absolute bottom-0 right-0 zoom-in" src="src/assets/illustration_handfull.webp" alt="">
     </section>
 
     <!-- À Propos -->
-    <section id="about" class="bg-sovietBeige texture-overlay flex flex-col md:flex-row">
-        <div class="basis-1/3">
-            <img class="h-[33rem] absolute bottom-0 left-0" src="src/textures/sonchoise.webp" alt="">
+    <section id="about" class="bg-sovietBeige texture-overlay flex flex-col lg:flex-row">
+        <div class="lg:basis-1/3 order-last lg:order-first" data-aos="fade-up-right" data-aos-duration="2000">
+            <img class="lg:h-[33rem] lg:absolute bottom-0 left-0" src="src/assets/illustration_sonchoise.webp" alt="">
         </div>
-        <div class="container mx-auto max-w-3xl basis-2/3 py-20">
-            <h2 class="text-5xl text-sovietRed uppercase font-title">À Propos de Nous</h2>
+        <div class="container mx-auto max-w-3xl lg:basis-2/3 py-20 px-6 lg:px-0" data-aos="fade-left" data-aos-duration="1500">
+            <h2 class="lg:text-5xl text-3xl text-sovietRed uppercase font-title">À Propos de Nous</h2>
             <p class="mt-6 text-xl text-sovietBlack font-light leading-relaxed font-paragraph">
                 Nous sommes trois amis, unis par une passion indéfectible pour <strong>l'art du brassage</strong>. Depuis des années, nous <strong>explorons</strong>, 
                 nous <strong>testons</strong>, nous <strong>perfectionnons</strong>. Chaque brassin est une <strong>expérience</strong>, 
@@ -55,69 +85,89 @@
 
     <!-- Nos Bières -->
     <section id="beers" class="bg-sovietGray text-sovietYellow texture-overlay">
-        <div class="flex flex-col md:flex-row">
-            <div class="container mx-auto max-w-3xl basis-2/3 py-20">
-                <h2 class="text-5xl font-extrabold uppercase font-title">Nos Bières</h2>
+        <div class="flex flex-col lg:flex-row">
+            <div class="container mx-auto max-w-3xl basis-2/3 py-20 px-6 lg:px-0" data-aos="fade-down-right" data-aos-duration="1500">
+                <h2 class="lg:text-5xl text-3xl font-extrabold uppercase font-title">Nos Bières</h2>
                 <p class="mt-6 text-xl font-light leading-relaxed font-paragraph">
-                    Nous puisons notre inspiration dans l'<strong><a target="_blank" href="https://galliaparis.com/blogs/tips/mouvement-craft-beer">audace des craft américaines</a></strong>, là où le <strong>goût</strong> est poussé à l'extrême. 
-                    Chez nous, le <strong><a target="_blank" href="https://fr.wikipedia.org/wiki/Houblon">houblon</a></strong> est roi, et une <strong><a target="_blank" href="https://fr.wikipedia.org/wiki/India_Pale_Ale">IPA</a></strong> digne de ce nom doit avoir un <strong><a target="_blank" href="https://www.la-minute-biere.fr/bieres/ibu-biere/">IBU</a> élevé</strong>, 
+                    Nous puisons notre inspiration dans l'<strong><a class="hover:text-sovietRed" target="_blank" href="https://galliaparis.com/blogs/tips/mouvement-craft-beer">audace des craft américaines</a></strong>, là où le <strong>goût</strong> est poussé à l'extrême. 
+                    Chez nous, le <strong><a class="hover:text-sovietRed" target="_blank" href="https://fr.wikipedia.org/wiki/Houblon">houblon</a></strong> est roi, et une <strong><a class="hover:text-sovietRed" target="_blank" href="https://fr.wikipedia.org/wiki/India_Pale_Ale">IPA</a></strong> 
+                    digne de ce nom doit avoir un <strong><a class="hover:text-sovietRed" target="_blank" href="https://www.la-minute-biere.fr/bieres/ibu-biere/">IBU</a> élevé</strong>, 
                     comme le veut la tradition. Nos <strong>bières</strong> ne sont pas faites pour passer inaperçues. Nous voulons choquer, étonner, 
                     et pousser les limites du <strong>goût</strong>. À chaque gorgée, nous cherchons à offrir une expérience unique, une bière qui fait dire <strong>"ça, 
                     c’est différent de tout ce que j’ai goûté avant !"</strong>. Mais attention, nous savons aussi où poser les armes et brasser des bières plus douces,
-                    comme une <strong><a target="_blank" href="https://www.la-minute-biere.fr/bieres/biere-blanche/">blanche rafraîchissante</a></strong>, parfaite pour un moment de calme après la tempête.
+                    comme une <strong><a class="hover:text-sovietRed" target="_blank" href="https://www.la-minute-biere.fr/bieres/biere-blanche/">blanche rafraîchissante</a></strong>, parfaite pour un moment de calme après la tempête.
                 </p>
             </div>
-            <div class="basis-1/3 flex justify-end">
-                <img class="h-[27rem]" src="src/textures/hop.webp" alt="">
+            <div class="lg:basis-1/3 hidden lg:flex lg:justify-end" data-aos="zoom-in" data-aos-duration="2000">
+                <img class="h-[27rem]" src="src/assets/illustration_hop.webp" alt="">
             </div>
         </div>
-        <div class="container mx-auto py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="bg-sovietRed text-sovietYellow relative">
+        <div class="container mx-auto lg:py-12 pb-20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-6 md:px-0 overflow-hidden">
+                <div class="bg-sovietRed text-sovietYellow relative" data-aos="zoom-out-up" data-aos-duration="1000">
                     <div class="poster">
-                        <img src="src/textures/sonchoise_base.webp" alt="">
+                        <img src="src/assets/poster_sonchoise_base.webp" alt="">
                     </div>
                     <div class="p-8">
                         <h3 class="text-3xl font-special">La Sonchoise</h3>
                         <h4 class="text-xl font-special">L'Originale</h4>
                         <p class="my-4 font-paragraph">
-                            <strong>La Sonchoise</strong> est une <strong>West Coast IPA</strong> qui se distingue par l’utilisation du houblon <strong>Citra</strong>, un ingrédient phare reconnaissable à ses notes éclatantes de <strong>pamplemousse</strong>, de <strong>citron vert</strong> et de <strong>fruits tropicaux</strong>. Avec une <strong>amertume prononcée</strong>, cette <strong>IPA</strong> s'inscrit parfaitement dans la tradition des <strong>bières audacieuses</strong> et marquées. Cependant, malgré son caractère fort, elle sait rester <strong>rafraîchissante</strong>, parfaite pour toutes les occasions.
+                            <strong>La Sonchoise</strong> est une <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.monpetithoublon.com/magazine/west-coast-ipa-vs-east-coast-ipa/">West Coast IPA</a></strong> 
+                            qui se distingue par l’utilisation du houblon <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.motlerhops.fr/blogs/le-blog-du-houblon/citra-hops-guide">Citra</a></strong>, 
+                            un ingrédient phare reconnaissable à ses notes éclatantes de <strong>pamplemousse</strong>, de <strong>citron vert</strong> et de <strong>fruits tropicaux</strong>. 
+                            Avec une <strong>amertume prononcée</strong>, cette <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.la-minute-biere.fr/bieres/india-pale-ale-ipa/">IPA</a></strong> 
+                            s'inscrit parfaitement dans la tradition des <strong>bières audacieuses</strong> et marquées. 
+                            Cependant, malgré son caractère fort, elle sait rester <strong>rafraîchissante</strong>, parfaite pour toutes les occasions.
                         </p>
                     </div>
                 </div>
-                <div class="bg-sovietRed text-sovietYellow relative">
+                <div class="bg-sovietRed text-sovietYellow relative" data-aos="zoom-out-up" data-aos-duration="2000">
                     <div class="poster">
-                        <img src="src/textures/BBB.jpg" alt="">
+                        <img src="src/assets/poster_BBB.webp" alt="">
                     </div>
                     <div class="p-8">
                         <h3 class="text-3xl font-special">BBB</h3>
                         <h4 class="text-xl font-special">Brute Blanche Basique</h4>
                         <p class="my-4 font-paragraph">
-                            <strong>La BBB</strong>, c’est l’histoire d’un <strong>accident glorieux</strong> ! Née comme une simple <strong>Weissbier</strong>, légère et rafraîchissante, elle a pris une tournure inattendue pour devenir une <strong>bière belge</strong> riche en alcool, par une petite erreur de calcul... mais quelle erreur ! Sa puissance est désormais un atout. Elle accompagne à merveille chaque <strong>repas</strong>, et s’impose comme l’alliée idéale pour les <strong>barbecues</strong>. Une bière qui incarne l'audace, prête à sublimer chaque moment partagé autour d'une table.
+                            <strong>La BBB</strong>, c’est l’histoire d’un <strong>accident glorieux</strong> ! Née comme une simple <strong><a class="hover:text-sovietGray" target="_blank" href="https://testeurshoublonnescourvillois.com/2021/05/02/quest-ce-quune-weissbier/">Weissbier</a></strong>, 
+                            légère et rafraîchissante, elle a pris une tournure inattendue pour devenir une <strong>bière belge</strong> riche en alcool, 
+                            par une petite erreur de calcul... mais quelle erreur ! Sa puissance est désormais un atout. 
+                            Elle accompagne à merveille chaque <strong>repas</strong>, et s’impose comme l’alliée idéale pour les <strong>barbecues</strong>. 
+                            Une bière qui incarne l'audace, prête à sublimer chaque moment partagé autour d'une table.
                         </p>
                     </div>
                 </div>
-                <div class="bg-sovietRed text-sovietYellow relative">
+                <div class="bg-sovietRed text-sovietYellow relative" data-aos="zoom-out-up" data-aos-duration="1500">
                     <div class="poster">
-                        <img src="src/textures/stoutmirleid_bis.webp" alt="">
+                        <img src="src/assets/poster_stoutmirleid.webp" alt="">
                     </div>
                     <div class="p-8">
                         <h3 class="text-3xl font-special">STOUT MIR LEID</h3>
                         <h4 class="text-xl font-special">Pardon...</h4>
                         <p class="my-4 font-paragraph">
-                            <strong>Stout Mir Leid</strong>, c’est la bière qui ne fait pas de compromis ! Une <strong>stout noire</strong>, poussée à l’extrême, légère en corps mais lourde en caractère grâce à son infusion audacieuse au <strong>piment oiseau</strong>. C’est la bière qui frappe fort, celle qui manque cruellement sur les étalages aujourd'hui. Pour ceux qui osent sortir des sentiers battus, c’est la révolution du goût épicé. Le temps est venu de sortir du lot, de laisser derrière les <strong>bières fades</strong>. Avec <strong>Stout Mir Leid</strong>, préparez-vous à une véritable déflagration de saveurs !
+                            <strong>Stout Mir Leid</strong>, c’est la bière qui ne fait pas de compromis ! 
+                            Une <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.monpetithoublon.com/magazine/stout/">stout noire</a></strong>, 
+                            poussée à l’extrême, légère en corps mais lourde en caractère grâce à son infusion audacieuse au <strong><a class="hover:text-sovietGray" target="_blank" href="https://fr.wikipedia.org/wiki/Piment_oiseau">piment oiseau</a></strong>. 
+                            C’est la bière qui frappe fort, celle qui manque cruellement sur les étalages aujourd'hui. Pour ceux qui osent sortir des sentiers battus, 
+                            c’est la révolution du goût épicé. Le temps est venu de sortir du lot, de laisser derrière les <strong>bières fades</strong>. 
+                            Avec <strong>Stout Mir Leid</strong>, préparez-vous à une véritable déflagration de saveurs !
                         </p>
                     </div>
                 </div>
-                <div class="bg-sovietRed text-sovietYellow relative">
+                <div class="bg-sovietRed text-sovietYellow relative" data-aos="zoom-out-up" data-aos-duration="2500">
                     <div class="poster">
-                        <img src="src/textures/sonchoise.jpg" alt="">
+                        <img src="src/assets/poster_sonchoise.webp" alt="">
                     </div>
                     <div class="p-8">
                         <h3 class="text-3xl font-special">La Sonchoise DDH</h3>
                         <h4 class="text-xl font-special">La petite dernière</h4>
                         <p class="my-4 font-paragraph">
-                            <strong>La Sonchoise DDH</strong>, c'est la petite sœur qui n'a rien à envier à l'originale ! Toujours fidèle à l’esprit <strong>West Coast IPA</strong>, elle pousse encore plus loin le caractère explosif du <strong>Citra</strong>. Avec une <strong>double dose en dry hopping</strong>, préparez-vous à une véritable déflagration de saveurs en bouche ! Plus intense, plus audacieuse, elle incarne la puissance brute du <strong>houblon</strong>. Chaque gorgée est un choc de fraîcheur et d’amertume. Pour les véritables amateurs, <strong>La Sonchoise DDH</strong> n’attend qu’à être savourée !
+                            <strong>La Sonchoise <a class="hover:text-sovietGray" target="_blank" href="https://unepetitemousse.fr/blog/ddh-houblonnage-a-cru/">DDH</a></strong>, c'est la petite sœur qui n'a rien à envier à l'originale ! 
+                            Toujours fidèle à l’esprit <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.monpetithoublon.com/magazine/west-coast-ipa-vs-east-coast-ipa/">West Coast IPA</a></strong>, 
+                            elle pousse encore plus loin le caractère explosif du <strong><a class="hover:text-sovietGray" target="_blank" href="https://www.autobrasseur.fr/blog/houblon/decouvrez-le-houblon-citra">Citra</a></strong>. 
+                            Avec une <strong>double dose en dry hopping</strong>, préparez-vous à une véritable déflagration de saveurs en bouche ! 
+                            Plus intense, plus audacieuse, elle incarne la puissance brute du <strong><a class="hover:text-sovietGray" target="_blank" href="https://unepetitemousse.fr/blog/houblon-biere/">houblon</a></strong>. 
+                            Chaque gorgée est un choc de fraîcheur et d’amertume. Pour les véritables amateurs, <strong>La Sonchoise <a class="hover:text-sovietGray" target="_blank" href="https://brewnation.fr/ddh-ipa/">DDH</a></strong> n’attend qu’à être savourée !
                         </p>
                     </div>
                 </div>
@@ -125,38 +175,40 @@
         </div>
     </section>
 
-    <section class="bg-sovietBeige text-sovietBlack py-20 px-6 texture-overlay">
+    <!-- Contact -->
+    <section id="contact" class="bg-sovietBeige text-sovietBlack py-20 px-6 texture-overlay">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl text-sovietRed uppercase font-title text-center">Rejoignez la Révolution</h2>
-            <p class="mt-6 text-xl font-light leading-relaxed font-paragraph">
+            <h2 class="lg:text-5xl text-3xl text-sovietRed uppercase font-title lg:text-center" data-aos="fade-up" data-aos-duration="1500">Rejoignez la Révolution</h2>
+            <p class="mt-6 text-xl font-light leading-relaxed font-paragraph" data-aos="fade-up" data-aos-duration="1500">
                 Nous sommes prêts à franchir une nouvelle étape avec l'ouverture de notre <strong>microbrasserie</strong> dans la région. 
                 Notre ambition ? S'intégrer à l'<strong>écosystème des brasseurs</strong> tout en apportant notre touche unique. 
                 Nous voulons proposer des <strong>bières qui sortent de l'ordinaire</strong>, pour ceux qui recherchent des saveurs nouvelles et audacieuses. 
                 Chaque bière que nous créons est le reflet de notre passion et de notre envie d'innover.
             </p>
-            <p class="mt-6 text-xl font-light leading-relaxed font-paragraph">
+            <p class="mt-6 text-xl font-light leading-relaxed font-paragraph" data-aos="fade-up" data-aos-duration="1500">
                 Ce <strong>projet ambitieux</strong> avance à grands pas, avec l'espoir de voir le jour courant 2025. 
                 Nous n'avons pas encore de date officielle, mais l'avenir est en marche ! 
                 Et pour que cette révolution prenne vie, nous aurons peut-être besoin d'un <strong>coup de pouce</strong> de votre part. 
                 Pour rester informé de nos avancées, inscrivez-vous à notre newsletter et soyez aux premières loges de la révolution brassicole.
             </p>
-            <form action="#" method="post" class="mt-8 flex flex-col items-center justify-center">
-                <input type="hidden" name="form-name" value="newsletter">
-                <label for="email" class="sr-only">Votre adresse email</label>
-                <input type="email" id="email" name="email" class="w-full max-w-md p-4 border border-gray-300 rounded-lg mb-4" placeholder="Entrez votre email" required>
-    
-                <!-- Case à cocher RGPD -->
-                <div class="flex items-start justify-center mb-4 max-w-md">
-                    <input type="checkbox" id="rgpd" name="rgpd" class="mr-2 mt-1" required>
-                    <label for="rgpd" class="text-sm text-sovietBlack">
-                        J'accepte que mes données soient stockées et utilisées conformément à la <a href="/politique-de-confidentialite" class="underline text-sovietRed hover:text-sovietGray">politique de confidentialité</a>.
-                    </label>
+            <form action="#" method="post" class="mt-16 flex flex-col items-center justify-center" data-aos="fade-up" data-aos-duration="1500">
+                <div class="max-w-md">
+                    <div class="flex flex-col justify-center">
+                        <input type="hidden" name="form-name" value="newsletter">
+                        <label for="email" class="sr-only">Votre adresse email</label>
+                        <input type="email" id="email" name="email" class="w-full p-4 border-2 border-gray-900 rounded-lg mb-4 focus:ring-4 focus:ring-sovietGray" placeholder="Entrez votre email" required>
+                    </div>
+                    <div class="flex items-start justify-center mb-4 w-full">
+                        <input type="checkbox" id="rgpd" name="rgpd" class="mr-2 mt-1 accent-red-600" required>
+                        <label for="rgpd" class="text-sm text-sovietBlack">
+                            J'accepte que mes données soient stockées et utilisées conformément à la <a href="/politique-de-confidentialite" class="underline text-sovietRed hover:text-sovietGray">politique de confidentialité</a>.
+                        </label>
+                    </div>
+                    <button type="submit" class="relative mt-4 paper pink w-full flex justify-center items-center py-4 -rotate-2 hover:sepia transition-all duration-200">
+                        <div class="tape-section"></div>
+                        <p class="font-paragraph text-2xl text-white">Je m'inscris à la newsletter</p>
+                    </button>
                 </div>
-    
-                <!-- Bouton d'inscription -->
-                <button type="submit" class="scotch-button w-full max-w-md">
-                    Inscrivez-vous à notre newsletter
-                </button>
             </form>
         </div>
     </section>
@@ -166,5 +218,9 @@
         <p>&copy; 2024 La Sonchoise - Tous droits réservés. | Propulsé par la passion du brassage.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

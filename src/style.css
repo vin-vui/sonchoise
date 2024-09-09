@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=anton:400|archivo-black:400|bebas-neue:400|bungee:400|bungee-shade:400|oswald:200,300,400,500,600,700|russo-one:400|staatliches:400);
+@import url(https://fonts.bunny.net/css?family=bungee:400|oswald:200,300,400,500,600,700);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,10 +9,20 @@
 }
 
 strong a {
-  @apply underline after:content-['↗'] hover:text-sovietRed;
+  @apply underline after:content-['↗'];
+}
+
+#mobile-menu.open {
+  max-height: 500px;
+}
+
+#mobile-menu.closed {
+  max-height: 0;
+  overflow: hidden;
 }
 
 @layer utilities {
+
   .texture-overlay {
     position: relative;
   }
@@ -24,17 +34,14 @@ strong a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/src/textures/paper_1.webp');
+    background-image: url('/src/assets/texture_paper.webp');
     background-size: cover;
     background-repeat: no-repeat;
     mix-blend-mode: overlay;
-    /* opacity: 0.8; */
     pointer-events: none;
     z-index: 1;
   }
   .poster {
-    /* width: 300px; */
-    /* padding: 7%; */
     position: relative;
     box-sizing: border-box;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
@@ -101,39 +108,157 @@ strong a {
     background-position: right top, left center, left bottom, left top, left top,
       right top, left center, right center, right center, left bottom;
   }
-  
-  .scotch-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f4e5c3; /* Couleur beige semblable au scotch */
-    color: #333; /* Couleur du texte */
-    border: none;
-    border-radius: 5px; /* Légère courbure des coins */
-    position: relative;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); /* Ombre subtile pour effet relief */
-    transform: rotate(-3deg); /* Légère inclinaison pour un effet naturel */
-    opacity: 0.9; /* Légère transparence pour simuler le plastique du scotch */
-    cursor: pointer;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+
+  :root {
+    --pink: #CC0000;
+    --pink-dark: #c6939a;
+    --tape-gray: #dbd8be;
+    --tape-edge-gray: #b7b49d;
+    --transparent: rgba(255, 255, 255, 0);
   }
   
-  .scotch-button:hover {
-    opacity: 1;
-    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au survol */
+  .pink {
+    --paper-color: var(--pink);
+    --paper-dark: var(--pink-dark);
+    --shadow-size: 1px;
+    --transparent: rgba(236, 178, 186, 0);
   }
   
-  .scotch-button::before {
-    content: '';
+  .blue {
+    --paper-color: #d5e0f9;
+    --paper-dark: #c2d0ea;
+    --shadow-size: 3px;
+    --transparent: rgba(213, 224, 249, 0);
+  }
+  
+  .paper {
+    background: linear-gradient(
+        to bottom right,
+        var(--paper-dark),
+        20%,
+        var(--transparent)
+      ),
+      var(--paper-color);
+    box-shadow: var(--shadow-size) var(--shadow-size) 2px var(--paper-dark);
+  }
+  
+  .paper::after {
+    content: "";
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        var(--transparent),
+        50%,
+        var(--paper-dark),
+        51%,
+        var(--transparent)
+      ),
+      linear-gradient(
+        to right,
+        var(--transparent),
+        50%,
+        var(--paper-dark),
+        51%,
+        var(--transparent)
+      );
+  }
+  
+  .tape-section {
+    position: absolute;
+    width: 100%;
+  }
+  
+  .top-tape {
+    position: absolute;
+    height: 4vmin;
     top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border: 1px dashed #333; /* Simule des bordures déchirées */
-    opacity: 0.5; /* Légère transparence pour l'effet de déchirure */
+    width: 110%;
+    background-color: var(--tape-gray);
+    border-right: 1px dotted var(--tape-edge-gray);
+    border-left: 1px dotted var(--tape-edge-gray);
+    opacity: 0.5;
+  }
+  
+  .tape-section:first-of-type {
+    top: 0;
+  }
+  
+  .tape-section:last-of-type {
+    bottom: 0;
+  }
+  
+  .tape-section::before,
+  .tape-section::after {
+    content: "";
+    width: 10vmin;
+    height: 4vmin;
+    position: absolute;
+    background-color: var(--tape-gray);
+    opacity: 0.5;
+    border-right: 1px dotted var(--tape-edge-gray);
+    border-left: 1px dotted var(--tape-edge-gray);
+  }
+  
+  .tape-section:last-of-type::after {
+    transform: rotate(-45deg);
+    right: -4vmin;
+    top: -3vmin;
+  }
+  
+  .tape-section:first-of-type::before {
+    transform: rotate(-45deg);
+    left: -4vmin;
+  }
+  
+  .tape-section:first-of-type::after {
+    transform: rotate(45deg);
+    right: -4vmin;
+    top: 0;
+  }
+  
+  .tape-section:last-of-type::before {
+    transform: rotate(45deg);
+    left: -4vmin;
+    bottom: 0;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .zoom-in {
+    animation: zoomIn 1s ease-out forwards;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out 1s forwards;
+  }
+  
+  .fade-in-up-delayed {
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+  }
+  
+  .fade-in-up-more-delayed {
+    animation: zoomIn 1s ease-out 2.5s forwards;
   }
   
 }

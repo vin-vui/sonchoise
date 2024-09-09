@@ -3,7 +3,7 @@ module.exports = {
     './**/*.html',
     './src/**/*.html',
     './src/**/*.js',
-    './src/**/*.vue', // ou .jsx, .tsx selon les technologies utilisées
+    './src/**/*.vue',
   ],
   theme: {
     extend: {
@@ -18,26 +18,9 @@ module.exports = {
         special: ['eurcntrc', 'display'],
         title: ['Bungee', 'display'],
         paragraph: ['Oswald', 'sans-serif'],
-
-        // bungee_shade: ['Bungee Shade', 'display'],
-        // propaganda: ['Archivo Black', 'sans-serif'],
-        // propaganda_2: ['Anton', 'sans-serif'],
-        // propaganda_3: ['Staatliches', 'display'],
-        // title: ['Russo One', 'sans-serif'], 
-        // paragraph: ['Bebas Neue', 'display'],
-        // kremlin: ['kremlin', 'display'],
-      },
-      keyframes: {
-        pulsate: {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.1)' },
-        },
-      },
-      animation: {
-        pulsate: 'pulsate 2s ease-in-out infinite',
       },
       backgroundImage: {
-        'rays': "url('/src/textures/rays_2-half.jpg')",
+        'rays': "url('/src/assets/background_rays.webp')",
       },
     },
   },
