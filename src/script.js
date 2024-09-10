@@ -23,7 +23,7 @@ document.getElementById('newsletter-form').addEventListener('submit', async func
     event.preventDefault();
     const email = document.getElementById('email').value;
     
-    const response = await fetch('/.netlify/functions/sendinblue', {
+    const response = await fetch('/functions/sendinblue', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
