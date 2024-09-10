@@ -19,9 +19,6 @@ module.exports = {
         title: ['Bungee', 'display'],
         paragraph: ['Oswald', 'sans-serif'],
       },
-      backgroundImage: {
-        'rays': "url('/src/assets/background_rays.webp')",
-      },
     },
   },
   plugins: [

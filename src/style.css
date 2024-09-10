@@ -226,11 +226,19 @@ strong a {
   @keyframes zoomIn {
     0% {
       opacity: 0;
-      transform: scale(0.5);
+      transform: scale(0.2);
     }
     100% {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+  @keyframes zoomPouet {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
   
@@ -258,7 +266,20 @@ strong a {
   }
   
   .fade-in-up-more-delayed {
-    animation: zoomIn 1s ease-out 2.5s forwards;
+    animation: zoomPouet 1s ease-out 2.5s forwards;
   }
   
 }
+
+.bg-rays {
+  background-image: url('/src/assets/background_rays.webp');
+  background-size: cover; /* Utilise cover pour garantir une bonne adaptation */
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* Fix spécifique pour iOS */
+  .bg-rays {
+    background-attachment: scroll; /* Désactive bg-fixed pour iOS */
+  }
+}
+
