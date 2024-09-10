@@ -19,25 +19,22 @@ menuLinks.forEach(link => {
     });
 });
 
-const apiKey = process.env.SENDINBLUE_API;
-
 document.getElementById('newsletter-form').addEventListener('submit', async function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
-    const response = await fetch('https://api.sendinblue.com/v3/contacts', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'api-key': apiKey
-        },
-        body: JSON.stringify({
-            email: email,
-            listIds: [3]
-        })
+    
+    const response = await fetch('/.netlify/functions/sendinblue', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email })
     });
+  
     if (response.ok) {
-        alert('Merci de vous être inscrit à notre newsletter !');
+      alert('Merci de vous être inscrit·e à notre newsletter !');
     } else {
-        alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+      alert('Erreur lors de l\'inscription. Veuillez réessayer.');
     }
-});
+  });
+  
