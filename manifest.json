@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Brasserie La Sonchoise",
+    "short_name": "Sonchoise",
     "icons": [
         {
             "src": "src/assets/favicons/android-chrome-144x144.png",
@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#CC0000",
+    "background_color": "#CC0000",
     "display": "standalone"
 }
