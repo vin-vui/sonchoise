@@ -18,3 +18,24 @@ menuLinks.forEach(link => {
         mobileMenu.classList.remove('open');
     });
 });
+
+document.getElementById('newsletter-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const response = await fetch('https://api.sendinblue.com/v3/contacts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'api-key': 'SENDINBLUE_API'
+        },
+        body: JSON.stringify({
+            email: email,
+            listIds: [3]
+        })
+    });
+    if (response.ok) {
+        alert('Merci de vous être inscrit à notre newsletter !');
+    } else {
+        alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+    }
+});
