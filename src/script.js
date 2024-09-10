@@ -19,6 +19,8 @@ menuLinks.forEach(link => {
     });
 });
 
+const apiKey = process.env.SENDINBLUE_API;
+
 document.getElementById('newsletter-form').addEventListener('submit', async function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
@@ -26,7 +28,7 @@ document.getElementById('newsletter-form').addEventListener('submit', async func
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'api-key': 'SENDINBLUE_API'
+            'api-key': apiKey
         },
         body: JSON.stringify({
             email: email,
