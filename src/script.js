@@ -24,17 +24,17 @@ document.getElementById('newsletter-form').addEventListener('submit', async func
     const email = document.getElementById('email').value;
     
     const response = await fetch('/.netlify/functions/sendinblue', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email })
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+        // body: JSON.stringify({ email: 'example@example.com' })
     });
-  
+
     if (response.ok) {
-      alert('Merci de vous être inscrit·e à notre newsletter !');
+        alert('Merci de vous être inscrit·e à notre newsletter !');
     } else {
-      alert('Erreur lors de l\'inscription. Veuillez réessayer.');
+        alert('Erreur lors de l\'inscription. Veuillez réessayer.');
     }
-  });
-  
+});

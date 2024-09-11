@@ -1,7 +1,14 @@
-// functions/sendinblue.js
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
+
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Requête invalide, aucun corps trouvé." })
+    };
+  }
+  
   const { email } = JSON.parse(event.body);
 
   const response = await fetch('https://api.sendinblue.com/v3/contacts', {
@@ -27,4 +34,4 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ message: 'Erreur lors de l\'inscription.' })
     };
   }
-};
+}
