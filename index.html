@@ -71,7 +71,8 @@
     
                 <!-- Menu burger pour mobile -->
                 <div class="lg:hidden">
-                    <button id="burger-menu" class="focus:outline-none">
+                    <button type="button" aria-label="burger menu" id="burger-menu" class="focus:outline-none">
+                        <span class="sr-only">bouton menu burger</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
@@ -256,7 +257,8 @@
                             J'accepte que mes données soient stockées et utilisées conformément à la <a href="/politique-de-confidentialite.html" class="underline text-sovietRed hover:text-sovietGray">politique de confidentialité</a>.
                         </label>
                     </div>
-                    <button type="submit" class="relative mt-4 paper pink w-full flex justify-center items-center py-4 -rotate-2 hover:sepia transition-all duration-200">
+                    <button type="submit" aria-label="inscription à la newsletter" class="relative mt-4 paper pink w-full flex justify-center items-center py-4 -rotate-2 hover:sepia transition-all duration-200">
+                        <span class="sr-only">inscription à la newsletter</span>
                         <div class="tape-section"></div>
                         <p class="font-paragraph text-2xl text-white">Je m'inscris dès maintenant à la newsletter</p>
                     </button>
@@ -266,8 +268,8 @@
     </section>
     
     <!-- Footer -->
-    <footer class="bg-sovietGray text-sovietYellow py-6 text-center texture-overlay">
-        <p>&copy; 2024 La Sonchoise - Tous droits réservés. | Propulsé par la passion du brassage.</p>
+    <footer class="bg-sovietGray text-sovietYellow py-6 text-center texture-overlay font-paragraph">
+        <p>&copy; 2024 La Sonchoise - Tous droits réservés. | Propulsé par la passion du brassage. | Conçu et développé avec ❤️ par <strong><a target="_blank" class="hover:text-sovietRed" href="https://cv.vinvui.com">Vinvui</a></strong></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
